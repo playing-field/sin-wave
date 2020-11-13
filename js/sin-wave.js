@@ -29,48 +29,34 @@ for (var i = 0; i < chars.length; i++) {
     ANGLE+=Math.PI/6;
 }
 
+function start(){
+    setInterval(animation,600);
+}
 
 
-
-/*function animation(){
-    setInterval(animate,500);
-}*/
-
-
-var incX=30;
 
 
 function animation() {
-    var children = stage.children;
 
-    children[0].style.left=children[0].style.left.split('px')[0]+incX+"px";
-    /*for(var i=0;i<children.length;i++){
-        console.log(children[i].style.left);
+    var firstPosX=chars[0].style.left;
+    var firstPosY=chars[0].style.top;
 
-        children[].style.left=children[i].style.left.split('px')[0]+incX+"px";
-        // children[i].style.top=children[i].style.top.split('px')[0]+incY+"px";
+    for(var i=0;i<chars.length;i++){
+        if((i+1)==chars.length){
+            chars[i].style.left=firstPosX;
+            chars[i].style.top=firstPosY;
+        }else{
+            chars[i].style.left=chars[i+1].style.left;
+            chars[i].style.top=chars[i+1].style.top;
+        }
 
-        console.log(children[i].style.left);
-    }*/
-}
-
-
-
-var incX=0;
-
-function animate(){
-    var children = stage.children;
-    for(var i=0;i<children.length;i++){
-        var incY=Math.sin(ANGLE)*RADIUS;
-        children[i].style.left=children[i].style.left.split('px')[0]+incX;
-        children[i].style.top=children[i].style.top.split('px')[0]+incY;
-        // console.log(parseInt(children[i].style.left.split('px')[0])+7);
-
-        incX+=20;
-        ANGLE+=Math.PI/6;
     }
 
 }
+
+
+
+
 
 
 
